@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Geographical Assistant</string>
+    <string name="Africa">Africa</string>
+    <string name="antarctica">Antarctica</string>
+    <string name="europe">Europe</string>
+    <string name="asia">Asia</string>
+    <string name="north_america">North America</string>
+    <string name="oceania">Oceania</string>
+    <string name="south_america">South America</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

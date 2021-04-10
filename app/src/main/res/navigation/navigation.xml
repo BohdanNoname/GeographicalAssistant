@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.nedashkivskyi.geographicalassistant.ui.activities.MainActivity"
+        android:label="MainActivity" />
+
+    <fragment
+        android:id="@+id/fragmentListCountries"
+        android:name="com.nedashkivskyi.geographicalassistant.FragmentListCountries"
+        android:label="fragment_list_countries"
+        tools:layout="@layout/fragment_list_countries">
+        <action
+            android:id="@+id/action_fragmentListCountries_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_fragmentListCountries_to_fragmentDataCountry"
+            app:destination="@id/fragmentDataCountry" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDataCountry"
+        android:name="com.nedashkivskyi.geographicalassistant.FragmentDataCountry"
+        android:label="fragment_data_country"
+        tools:layout="@layout/fragment_data_country">
+        <action
+            android:id="@+id/action_fragmentDataCountry_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+</navigation>
