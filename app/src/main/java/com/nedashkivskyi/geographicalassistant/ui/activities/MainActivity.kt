@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import com.apollographql.apollo.coroutines.await
 import com.nedashkivskyi.geographicalassistant.App
+import com.nedashkivskyi.geographicalassistant.CountriesQuery
 import com.nedashkivskyi.geographicalassistant.databinding.ActivityMainBinding
 import java.util.*
 

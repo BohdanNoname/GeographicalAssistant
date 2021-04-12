@@ -13,14 +13,14 @@
         android:orientation="horizontal"
         tools:context=".ui.activities.CountryActivity">
 
-        <fragment
+        <FrameLayout
             android:id="@+id/countries_list"
             android:name="com.nedashkivskyi.geographicalassistant.ui.fragments.list_countries.FragmentListCountries"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
 
-        <fragment
+        <FrameLayout
             android:id="@+id/country_data"
             android:name="com.nedashkivskyi.geographicalassistant.ui.fragments.data_countries.FragmentDataCountry"
             android:layout_width="0dp"
