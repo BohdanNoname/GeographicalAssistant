@@ -14,7 +14,7 @@ import dagger.Provides
 class ApplicationModule {
 
     @Provides
-    fun providesViewModel(): MutableLiveData<CountryQuery.Country> {
-        return MutableLiveData<CountryQuery.Country>()
+    fun providesViewModel(): MutableLiveData<CountriesQuery.Data?> {
+        return MutableLiveData<CountriesQuery.Data?>()
     }
 }

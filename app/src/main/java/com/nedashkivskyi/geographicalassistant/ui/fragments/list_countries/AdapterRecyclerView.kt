@@ -2,9 +2,13 @@ package com.nedashkivskyi.geographicalassistant.ui.fragments.list_countries
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.nedashkivskyi.geographicalassistant.databinding.RecyclerViewLineBinding
 import com.nedashkivskyi.geographicalassistant.models.Country
+import com.nedashkivskyi.geographicalassistant.ui.SharedViewModel
+import com.nedashkivskyi.geographicalassistant.ui.activities.CountryActivity
+import javax.inject.Inject
 
 class AdapterRecyclerView: RecyclerView.Adapter<AdapterRecyclerView.CountryViewHolder>() {
     private val countyList = emptyList<Country>()
