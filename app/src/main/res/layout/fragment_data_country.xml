@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/emoji"
+            android:id="@+id/flag"
             android:layout_width="250dp"
             android:layout_height="130dp"
             app:layout_constraintBottom_toBottomOf="parent"
