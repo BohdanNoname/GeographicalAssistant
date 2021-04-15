@@ -10,26 +10,174 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        tools:context=".ui.fragments.data_countries.FragmentDataCountry"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.data_countries.FragmentDataCountry">
+        android:padding="4dp">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/namePlusCode"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@{viewModel.country.country().name()}"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="20sp"
+            android:textColor="@color/dark_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/flag"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/capital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.country.country().capital()}"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/flag"
+            app:layout_constraintTop_toBottomOf="@+id/namePlusCode" />
+
 
         <ImageView
             android:id="@+id/flag"
-            android:layout_width="250dp"
-            android:layout_height="130dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="125dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ad"
+            android:elevation="@dimen/elevation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:id="@+id/languagesRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/flag">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:gravity="start|center"
+                android:text="@string/languages"
+                android:minWidth="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/blue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:id="@+id/nativeRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/languagesRow">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:gravity="start|center"
+                android:text="@string/natives"
+                android:minWidth="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:text="@{viewModel.country.country().native_()}"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/blue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:id="@+id/currencyRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nativeRow">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:gravity="start|center"
+                android:text="@string/currency"
+                android:minWidth="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/blue"
+                android:text="@{viewModel.country.country().currency()}"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:id="@+id/phoneRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currencyRow">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:gravity="start|center"
+                android:text="@string/phone"
+                android:minWidth="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/blue"
+                android:text="@{viewModel.country.country().phone()}"/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

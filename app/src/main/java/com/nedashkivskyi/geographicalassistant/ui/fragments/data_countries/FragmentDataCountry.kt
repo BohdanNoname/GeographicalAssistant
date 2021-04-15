@@ -30,11 +30,12 @@ class FragmentDataCountry: Fragment() {
 
         viewModel.country.observe(viewLifecycleOwner, Observer {
             binding.viewModel = viewModel
+            
             val code = it?.country()?.code().toString().toLowerCase(Locale.ROOT)
             val url = "https://maxmaracakes.com.ua/my_flags_images/$code.png"
-
             Picasso.get().load(url).into(binding.flag)
         })
+
         return binding.root
     }
 }
