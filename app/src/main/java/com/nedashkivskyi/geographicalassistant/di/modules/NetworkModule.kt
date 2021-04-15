@@ -3,6 +3,7 @@ package com.nedashkivskyi.geographicalassistant.di.modules
 import com.apollographql.apollo.ApolloClient
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.GlobalScope
 import javax.inject.Singleton
 
 @Module

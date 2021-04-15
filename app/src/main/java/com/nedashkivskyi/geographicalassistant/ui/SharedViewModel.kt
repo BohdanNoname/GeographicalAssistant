@@ -14,8 +14,8 @@ import javax.inject.Singleton
 
 @Singleton
 class SharedViewModel @Inject constructor(): ViewModel() {
-    private val _countriesList = MutableLiveData<CountriesQuery.Data?>()
-    private val _country = MutableLiveData<CountryQuery.Data?>()
+    @Inject lateinit var _countriesList: MutableLiveData<CountriesQuery.Data?>
+    @Inject lateinit var _country : MutableLiveData<CountryQuery.Data?>
 
     val countryList: LiveData<CountriesQuery.Data?>
             get() = _countriesList
@@ -24,6 +24,8 @@ class SharedViewModel @Inject constructor(): ViewModel() {
             get() = _country
 
     fun setCountriesListResponse(countryList: CountriesQuery.Data?){
+        _countriesList = MutableLiveData<CountriesQuery.Data?>()
+
         GlobalScope.launch {
             withContext(Dispatchers.Main){
                 _countriesList.value = countryList
@@ -32,6 +34,8 @@ class SharedViewModel @Inject constructor(): ViewModel() {
     }
 
     fun setCountryResponse(country: CountryQuery.Data?){
+        _country = MutableLiveData<CountryQuery.Data?>()
+
         GlobalScope.launch {
             withContext(Dispatchers.Main){
                 _country.value = country

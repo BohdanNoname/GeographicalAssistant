@@ -24,7 +24,6 @@ import javax.inject.Inject
 
 
 class CountryActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityCountryBinding
     lateinit var countryComponent: CountryActivityComponent
     @Inject lateinit var apolloClient: ApolloClient
@@ -45,16 +44,9 @@ class CountryActivity : AppCompatActivity() {
             apolloClient.query(CountriesQuery(continentAcronym)).enqueue(
                     object : ApolloCall.Callback<CountriesQuery.Data>(){
                         override fun onResponse(response: Response<CountriesQuery.Data>) {
-                            Log.d("onResponse", response.data?.continent()?.countries()?.get(10)?.capital().toString())
                             try {
                                 viewModel.setCountriesListResponse(response.data)
-
-                                supportFragmentManager.commit {
-                                    replace<FragmentDataCountry>(R.id.country_data)
-                                    replace<FragmentListCountries>(R.id.countries_list)
-                                    setReorderingAllowed(true)
-                                    addToBackStack("")
-                                }
+                                fragmentRealization()
                             } catch (e: IOException){
                                 Log.d(" ", e.message.toString())
                             }
@@ -65,5 +57,18 @@ class CountryActivity : AppCompatActivity() {
                     }
             )
         }
+    }
+
+    private fun fragmentRealization(){
+        try{
+            supportFragmentManager.commit {
+                replace<FragmentListCountries>(R.id.countries_list)
+                setReorderingAllowed(true)
+                addToBackStack("replaceFragmentList")
+            }
+        } catch (e: IOException) {
+            Log.d("IOException", e.message.toString())
+        }
+
     }
 }
