@@ -51,24 +51,18 @@ class AdapterRecyclerView @Inject constructor(): RecyclerView.Adapter<AdapterRec
             binding.countryName.text = country.name()
 
             if (country.capital() != null) {
-                binding.countryCapital.text = country.code() +
-                        " - " + country.capital()
-            } else {
-                binding.countryCapital.text = country.code()
-            }
+                binding.countryCapital.text = country.code() + " - " + country.capital()
+            } else { binding.countryCapital.text = country.code() }
 
-            binding.code.text = country.code()
+            val code = country.code()
+
             binding.itemView.setOnClickListener{
-                val code = it.findViewById<TextView>(R.id.code).text.toString()
                 apolloClient.query(CountryQuery(code)).enqueue(
                         object: ApolloCall.Callback<CountryQuery.Data>(){
                             override fun onResponse(response: Response<CountryQuery.Data>) {
                                 try {
                                     viewModel.setCountryResponse(response.data)
                                     replaceFragmentCountryData(it)
-
-                                    Log.d("onResponse", response.data
-                                        ?.country()?.capital().toString())
                                 } catch (e: IOException){
                                     Log.d("IOException", e.message.toString())
                                 }
