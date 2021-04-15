@@ -31,7 +31,9 @@ class FragmentDataCountry: Fragment() {
         viewModel = ViewModelProvider(activity as CountryActivity).get(SharedViewModel::class.java)
 
         viewModel.country.observe(viewLifecycleOwner, Observer {
-            uiRealization(it)
+            if (it != null){
+                uiRealization(it)
+            }
         })
 
         return binding.root
@@ -40,6 +42,13 @@ class FragmentDataCountry: Fragment() {
     @SuppressLint("SetTextI18n")
     private fun uiRealization(it: CountryQuery.Data?){
         binding.viewModel = viewModel
+
+        binding.languagesRow.alpha = 1F
+        binding.nativeRow.alpha = 1F
+        binding.currencyRow.alpha = 1F
+        binding.phoneRow.alpha = 1F
+        binding.helpsText.alpha = 0F
+
         val country = viewModel._country.value?.country()!!
         val code = it?.country()?.code()!!
         binding.namePlusCode.text = country.name() + " - " + code

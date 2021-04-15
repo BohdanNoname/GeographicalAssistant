@@ -11,4 +11,5 @@
     <string name="currency">Currency: </string>
     <string name="natives">Native:</string>
     <string name="phone">Phone:</string>
+    <string name="help">Choose one of the country from list for showing of information</string>
 </resources>

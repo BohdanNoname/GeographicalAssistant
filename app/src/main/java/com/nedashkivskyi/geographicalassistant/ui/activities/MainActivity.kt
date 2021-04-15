@@ -17,29 +17,16 @@ class MainActivity : AppCompatActivity() {
 //        Dagger realization
         (applicationContext as App).appComponent.inject(this)
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
 //    OnClick method in the XML attribute in the layout
     fun startCountryActivity(view: View){
-        val textView = view.findViewById<TextView>(view.id)
-        val intent = Intent(this, CountryActivity::class.java)
-        intent.putExtra(App.ACTIVITY_INTENT_TAG, acronym(textView.text.toString()))
-        startActivity(intent)
-    }
+        val continentName = view.findViewById<TextView>(view.id).text
 
-    private fun acronym(nameContinent: String): String {
-        val acronym = nameContinent.split(" ")
-        return if (acronym.size > 1) {
-            val arg1 = acronym[0][0]
-            val arg2 = acronym[1][0]
-            "$arg1$arg2".toUpperCase(Locale.ROOT)
-        } else {
-            val arg1 = nameContinent[0]
-            val arg2 = nameContinent[1]
-            "$arg1$arg2".toUpperCase(Locale.ROOT)
-        }
+        val intent = Intent(this, CountryActivity::class.java)
+        intent.putExtra(App.ACTIVITY_INTENT_TAG, continentName)
+        startActivity(intent)
     }
 }

@@ -3,16 +3,9 @@
     android:shape="rectangle">
     <!-- View background color -->
     <solid
-        android:color="@color/white" >
+        android:color="@color/light_blue" >
     </solid>
 
-    <!-- View border color and width -->
-    <stroke
-        android:width="2dp"
-        android:color="@color/dark_blue">
-    </stroke>
-
-    <!-- The radius makes the corners rounded -->
     <corners
         android:radius="10dp">
     </corners>

@@ -8,7 +8,11 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_blue">#036bfc</color>
+    <color name="dark_blue">#04082e</color>
     <color name="blue">#2ea0f2</color>
     <color name="background">#afdefa</color>
+    <color name="background_sea_blue">#447695</color>
+    <color name="light_blue">#bfe6ef</color>
+    <color name="golden">#eebd6b</color>
+    <color name="golden_grey">#b09731</color>
 </resources>
