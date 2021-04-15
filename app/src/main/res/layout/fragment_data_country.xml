@@ -18,9 +18,9 @@
         <TextView
             android:id="@+id/namePlusCode"
             android:layout_width="wrap_content"
+            android:maxWidth="250dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{viewModel.country.country().name()}"
             android:textSize="20sp"
             android:textColor="@color/dark_blue"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
             android:text="@{viewModel.country.country().capital()}"
             android:textColor="@color/blue"
             android:textSize="18sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/flag"
             app:layout_constraintTop_toBottomOf="@+id/namePlusCode" />
@@ -42,7 +42,7 @@
 
         <ImageView
             android:id="@+id/flag"
-            android:layout_width="125dp"
+            android:layout_width="120dp"
             android:layout_height="70dp"
             android:src="@drawable/ad"
             android:elevation="@dimen/elevation"
@@ -50,35 +50,36 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:layout_marginTop="8dp"
             android:id="@+id/languagesRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:background="@drawable/border"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
+            android:orientation="horizontal"
             android:paddingStart="8dp"
+            android:paddingTop="4dp"
             android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
 
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/flag">
+            app:layout_constraintTop_toBottomOf="@+id/capital">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="17sp"
                 android:gravity="start|center"
+                android:minWidth="90dp"
                 android:text="@string/languages"
-                android:minWidth="90dp"/>
+                android:textSize="17sp" />
 
             <TextView
+                android:id="@+id/languagesList"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="17sp"
                 android:layout_marginStart="4dp"
-                android:textColor="@color/blue"/>
+                android:textColor="@color/blue"
+                android:textSize="17sp" />
         </LinearLayout>
 
         <LinearLayout
