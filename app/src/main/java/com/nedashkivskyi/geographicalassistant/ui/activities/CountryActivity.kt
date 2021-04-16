@@ -3,6 +3,7 @@ package com.nedashkivskyi.geographicalassistant.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
@@ -70,6 +71,7 @@ class CountryActivity : AppCompatActivity() {
                 setReorderingAllowed(true)
                 addToBackStack("replaceFragmentList")
             }
+            binding.progressBar.visibility = View.INVISIBLE
         } catch (e: IOException) {
             Log.d("IOException", e.message.toString())
         }

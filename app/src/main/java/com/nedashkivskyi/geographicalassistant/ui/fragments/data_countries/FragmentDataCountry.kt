@@ -63,11 +63,11 @@ class FragmentDataCountry: Fragment() {
 
     private fun visibilityUiComponents(isChecked: Boolean){
         if(isChecked){
-            binding.languagesRow.alpha = 1F
-            binding.nativeRow.alpha = 1F
-            binding.currencyRow.alpha = 1F
-            binding.phoneRow.alpha = 1F
-            binding.helpsText.alpha = 0F
+            binding.languagesRow.visibility = View.VISIBLE
+            binding.nativeRow.visibility = View.VISIBLE
+            binding.currencyRow.visibility = View.VISIBLE
+            binding.phoneRow.visibility = View.VISIBLE
+            binding.helpsText.visibility = View.INVISIBLE
         }
     }
 }
