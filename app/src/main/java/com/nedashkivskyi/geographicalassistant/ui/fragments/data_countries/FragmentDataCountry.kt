@@ -42,17 +42,13 @@ class FragmentDataCountry: Fragment() {
     @SuppressLint("SetTextI18n")
     private fun uiRealization(it: CountryQuery.Data?){
         binding.viewModel = viewModel
-
-        binding.languagesRow.alpha = 1F
-        binding.nativeRow.alpha = 1F
-        binding.currencyRow.alpha = 1F
-        binding.phoneRow.alpha = 1F
-        binding.helpsText.alpha = 0F
-
+        visibilityUiComponents(true)
         val country = viewModel._country.value?.country()!!
-        val code = it?.country()?.code()!!
+        val code = country.code()
+
         binding.namePlusCode.text = country.name() + " - " + code
 
+//        Getting images from my own by unique acronym of every country
         val url = "https://maxmaracakes.com.ua/my_flags_images/${code.toLowerCase(Locale.ROOT)}.png"
         Picasso.get().load(url).into(binding.flag)
 
@@ -60,7 +56,18 @@ class FragmentDataCountry: Fragment() {
         for (language in country.languages()){
             languages.add(language.name().toString())
         }
-
         binding.languagesList.text = languages.toString().replace("[", "").replace("]", "")
+
+        binding.phoneCode.text = "+" + country.phone()
+    }
+
+    private fun visibilityUiComponents(isChecked: Boolean){
+        if(isChecked){
+            binding.languagesRow.alpha = 1F
+            binding.nativeRow.alpha = 1F
+            binding.currencyRow.alpha = 1F
+            binding.phoneRow.alpha = 1F
+            binding.helpsText.alpha = 0F
+        }
     }
 }

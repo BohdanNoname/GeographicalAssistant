@@ -204,12 +204,12 @@
                     android:minWidth="90dp"/>
 
                 <TextView
+                    android:id="@+id/phoneCode"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="17sp"
                     android:layout_marginStart="4dp"
-                    android:textColor="@color/dark_blue"
-                    android:text="@{viewModel.country.country().phone()}"/>
+                    android:textColor="@color/dark_blue"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
