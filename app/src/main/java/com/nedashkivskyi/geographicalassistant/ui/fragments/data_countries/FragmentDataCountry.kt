@@ -48,7 +48,7 @@ class FragmentDataCountry: Fragment() {
 
         binding.namePlusCode.text = country.name() + " - " + code
 
-//        Getting images from my own by unique acronym of every country
+//        Getting images from my own server by unique acronym of every country
         val url = "https://maxmaracakes.com.ua/my_flags_images/${code.toLowerCase(Locale.ROOT)}.png"
         Picasso.get().load(url).into(binding.flag)
 
