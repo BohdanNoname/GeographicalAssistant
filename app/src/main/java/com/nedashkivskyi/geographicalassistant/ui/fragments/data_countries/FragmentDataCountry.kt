@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.nedashkivskyi.geographicalassistant.CountryQuery
-import com.nedashkivskyi.geographicalassistant.R
 import com.nedashkivskyi.geographicalassistant.databinding.FragmentDataCountryBinding
 import com.nedashkivskyi.geographicalassistant.ui.SharedViewModel
 import com.nedashkivskyi.geographicalassistant.ui.activities.CountryActivity
 import com.squareup.picasso.Picasso
-import java.io.File
 import java.util.*
 import javax.inject.Inject
 
@@ -30,9 +26,9 @@ class FragmentDataCountry: Fragment() {
         binding = FragmentDataCountryBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(activity as CountryActivity).get(SharedViewModel::class.java)
 
-        viewModel.country.observe(viewLifecycleOwner, Observer {
+        viewModel.country.observe(viewLifecycleOwner, {
             if (it != null){
-                uiRealization(it)
+                uiRealization()
             }
         })
 
@@ -40,15 +36,15 @@ class FragmentDataCountry: Fragment() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun uiRealization(it: CountryQuery.Data?){
+    private fun uiRealization() {
         binding.viewModel = viewModel
-        visibilityUiComponents(true)
+        visibilityUiComponents()
         val country = viewModel._country.value?.country()!!
         val code = country.code()
 
         binding.namePlusCode.text = country.name() + " - " + code
 
-//        Getting images from my own by unique acronym of every country
+//        Getting images from my own server by unique acronym of every country
         val url = "https://maxmaracakes.com.ua/my_flags_images/${code.toLowerCase(Locale.ROOT)}.png"
         Picasso.get().load(url).into(binding.flag)
 
@@ -61,13 +57,11 @@ class FragmentDataCountry: Fragment() {
         binding.phoneCode.text = "+" + country.phone()
     }
 
-    private fun visibilityUiComponents(isChecked: Boolean){
-        if(isChecked){
-            binding.languagesRow.visibility = View.VISIBLE
-            binding.nativeRow.visibility = View.VISIBLE
-            binding.currencyRow.visibility = View.VISIBLE
-            binding.phoneRow.visibility = View.VISIBLE
-            binding.helpsText.visibility = View.INVISIBLE
-        }
+    private fun visibilityUiComponents(){
+        binding.languagesRow.visibility = View.VISIBLE
+        binding.nativeRow.visibility = View.VISIBLE
+        binding.currencyRow.visibility = View.VISIBLE
+        binding.phoneRow.visibility = View.VISIBLE
+        binding.helpsText.visibility = View.INVISIBLE
     }
 }

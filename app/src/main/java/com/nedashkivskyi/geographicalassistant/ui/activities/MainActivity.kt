@@ -7,17 +7,15 @@ import android.view.View
 import android.widget.TextView
 import com.nedashkivskyi.geographicalassistant.App
 import com.nedashkivskyi.geographicalassistant.databinding.ActivityMainBinding
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        Dagger realization
         (applicationContext as App).appComponent.inject(this)
-        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        super.onCreate(savedInstanceState)
         setContentView(binding.root)
     }
 
